@@ -19,7 +19,7 @@
 $(call inherit-product, device/samsung/kminilte/full_kminilte.mk)
 
 # Inherit common Lineage phone.
-$(call inherit-product, vendor/lineage/config/common_full_phone.mk)
+$(call inherit-product, vendor/lineage/config/common_mini_phone.mk)
 
 PRODUCT_NAME := lineage_kminilte
 PRODUCT_DEVICE := kminilte
