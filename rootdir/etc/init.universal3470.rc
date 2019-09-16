@@ -521,6 +521,9 @@ on fs
     chmod 0660 /sys/class/sec/switch/otg_cable_type
     chown system radio /sys/class/sec/switch/otg_cable_type
 
+on property:apexd.status=ready
+    mount none /system/etc/swcodec/ld.config.txt /apex/com.android.media.swcodec/etc/ld.config.txt bind
+
 service prepare_param /system/bin/prepare_param.sh /dev/block/platform/dw_mmc.0/by-name/PARAM
     class core
     user root
