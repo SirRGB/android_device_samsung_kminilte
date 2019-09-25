@@ -58,9 +58,9 @@
 # sysfs files
 #
 
-/sys/class/graphics/fb[0-9](/.*)?                            -- u:object_r:sysfs_graphics:s0
-/sys/devices/platform/bcm4334_bluetooth/rfkill/rfkill0/state -- u:object_r:sysfs_bluetooth_writable:s0
-/sys/devices/platform/bcm4334_bluetooth/rfkill/rfkill0/type  -- u:object_r:sysfs_bluetooth_writable:s0
+/sys/class/graphics/fb[0-9](/.*)?                               u:object_r:sysfs_graphics:s0
+/sys/devices/platform/bcm4334_bluetooth/rfkill/rfkill0/state    u:object_r:sysfs_bluetooth_writable:s0
+/sys/devices/platform/bcm4334_bluetooth/rfkill/rfkill0/type     u:object_r:sysfs_bluetooth_writable:s0
 /sys/devices/platform/s5p-ehci/ehci_power                       u:object_r:sysfs_usb_power_writable:s0
 /sys/devices/virtual/misc/multipdp(/.*)                         u:object_r:sysfs_multipdp_writable:s0
 /sys/devices/virtual/sec/switch/otg_cable_type                  u:object_r:sysfs_otg_writable:s0
@@ -68,5 +68,7 @@
 ####################################
 # deamons
 #
-/system/bin/mcDriverDaemon -- u:object_r:tee_exec:s0
+/system/bin/mcDriverDaemon    u:object_r:tee_exec:s0
 
+# firmware
+/firmware(/.*)?  u:object_r:tmp_root_mount_file:s0 

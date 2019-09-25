@@ -21,3 +21,6 @@ type sysfs_otg_writable, fs_type, sysfs_type;
 type sysfs_graphics, fs_type, sysfs_type, mlstrustedobject;
 
 allow sysfs_type tmpfs:filesystem associate;
+
+type tmp_root_mount_file, file_type;
+type firmware_file, file_type;
