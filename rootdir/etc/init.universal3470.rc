@@ -607,7 +607,7 @@ service TvoutService_C /system/bin/bintvoutservice
 on property:ro.tvout.enable=false
     stop TvoutService_C
 
-service charger /charger
+service charger /system/bin/charger
     class charger
     seclabel u:r:charger:s0
 
