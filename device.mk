@@ -19,6 +19,8 @@ $(call inherit-product-if-exists, vendor/samsung/kminilte/kminilte-vendor.mk)
 
 LOCAL_PATH := device/samsung/kminilte
 
+PRODUCT_SOONG_NAMESPACES += $(LOCAL_PATH)
+
 # Overlays
 DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
 
@@ -32,16 +34,18 @@ TARGET_SCREEN_WIDTH := 720
 TARGET_BOOTANIMATION_HALF_RES := true
 
 # Ramdisk
-PRODUCT_PACKAGES += \
-    fstab.universal3470 \
-    init.universal3470.rc \
-    init.universal3470.usb.rc \
-    init.wifi.rc \
-    ueventd.universal3470.rc
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/rootdir/etc/fstab.universal3470:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.universal3470 \
+    $(LOCAL_PATH)/rootdir/etc/init.universal3470.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.universal3470.rc \
+    $(LOCAL_PATH)/rootdir/etc/init.universal3470.usb.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.universal3470.usb.rc \
+    $(LOCAL_PATH)/rootdir/etc/init.wifi.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.wifi.rc \
+    $(LOCAL_PATH)/rootdir/etc/ueventd.universal3470.rc:$(TARGET_COPY_OUT_VENDOR)/ueventd.rc
 
 # Audio
+USE_CUSTOM_AUDIO_POLICY := 1
+USE_XML_AUDIO_POLICY_CONF := 1
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/audio/audio_policy.conf:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy.conf
+    $(LOCAL_PATH)/audio/audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_configuration.xml
 
 # Camera
 #PRODUCT_PACKAGES += \
@@ -68,9 +72,9 @@ PRODUCT_PACKAGES += \
     android.hardware.ir@1.0-service
 
 # Sensors
-PRODUCT_PACKAGES += \
-    android.hardware.sensors@1.0-impl \
-    sensors.universal3470
+#PRODUCT_PACKAGES += \
+#    android.hardware.sensors@1.0-impl \
+#    sensors.universal3470
 
 # Vibrator
 PRODUCT_PACKAGES += \
@@ -83,8 +87,7 @@ PRODUCT_PACKAGES += \
 # Fingerprint
 PRODUCT_PACKAGES += \
     fingerprint.universal3470 \
-    ValidityService \
-    android.hardware.biometrics.fingerprint@2.0-service
+    android.hardware.biometrics.fingerprint@2.1-service
 
 # Media config
 PRODUCT_COPY_FILES += \
