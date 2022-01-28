@@ -18,7 +18,7 @@
 $(call inherit-product-if-exists, vendor/samsung/kminilte/kminilte-vendor.mk)
 
 # MicroG
-$(call inherit-product, vendor/addons/microg/config.mk)
+$(call inherit-product, vendor/addons/microg/products/gms_go_2gb.mk)
 
 LOCAL_PATH := device/samsung/kminilte
 
