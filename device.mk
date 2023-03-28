@@ -39,7 +39,8 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/rootdir/etc/init.universal3470.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.universal3470.rc \
     $(LOCAL_PATH)/rootdir/etc/init.universal3470.usb.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.universal3470.usb.rc \
     $(LOCAL_PATH)/rootdir/etc/init.wifi.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.wifi.rc \
-    $(LOCAL_PATH)/rootdir/etc/ueventd.universal3470.rc:$(TARGET_COPY_OUT_VENDOR)/ueventd.rc
+    $(LOCAL_PATH)/rootdir/etc/ueventd.universal3470.rc:$(TARGET_COPY_OUT_VENDOR)/ueventd.rc \
+    $(LOCAL_PATH)/rootdir/etc/loggy.sh:$(TARGET_COPY_OUT_VENDOR)/init/hw/loggy.sh
 
 # Audio
 USE_CUSTOM_AUDIO_POLICY := 1
