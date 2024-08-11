@@ -71,4 +71,6 @@
 /system/bin/mcDriverDaemon    u:object_r:tee_exec:s0
 
 # firmware
-/firmware(/.*)?  u:object_r:tmp_root_mount_file:s0 
+/firmware(/.*)?       u:object_r:tmp_root_mount_file:s0 
+/firmware-mdm(/.*)?   u:object_r:tmp_root_mount_file:s0
+/tombstones(/.*)?     u:object_r:tmp_root_mount_file:s0
